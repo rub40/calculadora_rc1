@@ -18,6 +18,7 @@ public class Client {
 		while(!stop) {
 
 			Socket s = new Socket("localhost", 9999);
+    		//Em C# se utiliza o objeto BinaryWriter e BinaryReader();
 			DataInputStream dis = new DataInputStream(new BufferedInputStream(s.getInputStream()));
 			DataOutputStream dos = new DataOutputStream(new BufferedOutputStream(s.getOutputStream()));
 			

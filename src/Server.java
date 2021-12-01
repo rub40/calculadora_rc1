@@ -11,6 +11,7 @@ public class Server {
 
 	public static void main(String[] args) throws IOException {
 		
+		//Em C# o ServerSocket seria um TCPListener;
 		ServerSocket ss = null;
 		Socket s = null;
 		
@@ -25,9 +26,11 @@ public class Server {
    	
         	try {
         	
+    			//Para iniciar um socket em C# é necessário iniciar uma instancia de um TCPListener que no caso faz a funcao do ServerSocket, O metodo em C# dentro do objeto TCPListener Seria .AcceptSocket();
         		s = ss.accept();
         		
         		//Pega as informações do input/output do Socket
+        		//Em C# se utiliza o objeto BinaryWriter e BinaryReader();
         		DataInputStream dis = new DataInputStream(new BufferedInputStream(s.getInputStream()));
                 DataOutputStream dos = new DataOutputStream(new BufferedOutputStream(s.getOutputStream()));
                 
@@ -36,6 +39,7 @@ public class Server {
             	
             	if(calc != null) {
             		
+            		//StringTokenizer separa os values de acordo com os espaços, em C# seria utilizado o Split('') para separar uma string;
                 	StringTokenizer st = new StringTokenizer(calc);
                 	
                 	//Monta a espressão e o calculo feito
